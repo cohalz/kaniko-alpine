@@ -1,11 +1,7 @@
 FROM gcr.io/kaniko-project/executor:latest
 
 FROM alpine:latest
-COPY --from=0 /kaniko/executor /kaniko/executor
-COPY --from=0 /kaniko/docker-credential-gcr /kaniko/docker-credential-gcr
-COPY --from=0 /kaniko/docker-credential-ecr-login /kaniko/docker-credential-ecr-login
-COPY --from=0 /kaniko/ssl/certs/ /kaniko/ssl/certs/
-COPY --from=0 /root/.docker/config.json /kaniko/.docker/config.json
+COPY --from=0 /kaniko/ /kaniko/
 ENV HOME /root
 ENV USER /root
 ENV PATH /bin:/usr/bin:usr/local/bin:/kaniko
